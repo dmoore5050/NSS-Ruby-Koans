@@ -6,12 +6,12 @@ class AboutObjects < EdgeCase::Koan
     assert_equal 7.2.is_a?(Object), 1.5.is_a?(Object)
     assert_equal "this".is_a?(Object), "string".is_a?(Object)
     assert_equal nil.is_a?(Object), nil.is_a?(Object)
-    assert_equal Object.is_a?(Object), Object.is_a?(Object)
+    assert_equal Array.is_a?(Object), Object.is_a?(Object)
   end
 
   def test_objects_can_be_converted_to_strings
-    assert_equal 123.to_s, 123.to_s
-    assert_equal nil.to_s, nil.to_s
+    assert_equal "123", 123.to_s
+    assert_equal "", nil.to_s
   end
 
   def test_objects_can_be_inspected
