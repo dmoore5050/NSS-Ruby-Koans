@@ -156,6 +156,6 @@ class AboutRegularExpressions < EdgeCase::Koan
   end
 
   def test_gsub_is_like_find_and_replace_all
-    assert_equal "one t-t", "one two-three".gsub(/(t\w*)/) { $1[0, 1] }
+    assert_equal "one two-thr", "one two-three".gsub(/(t\w*)/) { $1[0, 3] }
   end
 end
