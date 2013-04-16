@@ -104,7 +104,7 @@ class AboutHashes < EdgeCase::Koan
   end
 
   def test_default_value_with_block
-    hash = Hash.new {|hash, key| hash[key] = [] }
+    hash = Hash.new {|h, k| h[k] = [] }
 
     hash[:one] << "uno"
     hash[:two] << "dos"
