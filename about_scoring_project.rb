@@ -30,7 +30,71 @@ require File.expand_path(File.dirname(__FILE__) + '/edgecase')
 # Your goal is to write the score method.
 
 def score(dice)
-  # You need to write this method
+  
+  if dice.length <= 0
+    return 0
+  end
+
+  die_count = [ 0, 0, 0, 0, 0, 0 ]
+
+  dice.each { | die | 
+
+    if die == 1 
+      die_count[0] += 1
+    elsif die == 2 
+      die_count[1] += 1
+    elsif die == 3 
+      die_count[2] += 1
+    elsif die == 4 
+      die_count[3] += 1 
+    elsif die == 5
+      die_count[4] += 1
+    elsif die == 6
+      die_count[5] += 1
+    end
+
+  }
+
+  $score_sum = 0
+
+  die_count.each_with_index { | count, index | 
+    if count >= 3
+      calc_three_and_up( count, index )
+    else
+      if index == 0
+        $score_sum += count * 100
+      elsif index == 4
+        $score_sum += count * 50
+      end
+    end
+  }
+
+  def calc_three_and_up ( count, index )
+    if index == 0
+      if count == 3
+        $score_sum += 1000
+      elsif count == 4
+        $score_sum += 1100
+      elsif count == 5
+        $score_sum += 1200
+      end
+    elsif index == 4
+      if count == 3
+        $score_sum += 500
+      elsif count == 4
+        $score_sum += 550
+      elsif count == 5  
+        $score_sum += 600
+      end
+    else  
+      if count == 3
+        $score_sum += (index + 1) * 100
+      end/
+    end
+  end
+
+  return $score_sum
+
 end
 
 class AboutScoringProject < EdgeCase::Koan
