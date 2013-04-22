@@ -37,7 +37,7 @@ def score(dice)
 
   die_count = [ 0, 0, 0, 0, 0, 0 ]
 
-  dice.each { | die | 
+  dice.each do | die | 
 
     if die == 1 
       die_count[0] += 1
@@ -53,11 +53,11 @@ def score(dice)
       die_count[5] += 1
     end
 
-  }
+  end
 
   $score_sum = 0
 
-  die_count.each_with_index { | count, index | 
+  die_count.each_with_index do | count, index | 
     if count >= 3
       calc_three_and_up( count, index )
     else
@@ -67,7 +67,7 @@ def score(dice)
         $score_sum += count * 50
       end
     end
-  }
+  end
 
   def calc_three_and_up ( count, index )
     if index == 0
@@ -89,7 +89,7 @@ def score(dice)
     else  
       if count == 3
         $score_sum += (index + 1) * 100
-      end/
+      end
     end
   end
 
